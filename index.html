@@ -6,25 +6,36 @@
 </body>
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script> <!-- React JS 상호작용의 원동력 -->
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script> <!-- ReactDOM React element를 가져다가 HTML로 바꾸는 역할 -->
-<script>
-    // 어려운 방식으로 코딩
-    const root = document.getElementById("root")
-    const h3 = React.createElement("h3", 
-    {
-        id : "title",
-        onMouseEnter : () => console.log("mouse enter"),
-    },
-     "Hello I'm a Span"); // span의 propery class name or id
-    const btn = React.createElement("button", 
-    {
-        onClick: () => console.log("i'm clicked"),
-        style : {
-            backgroundColor : "tomato",
-        }
-    },
-     "Click me")
-    const container = React.createElement("div", null, [h3, btn]); // no property, h3, btn rendering
-    ReactDOM.render(container, root); // React span element를 id="root"인 안에 html로 만들어 배치
+<script src="https://unpkg.com/@babel/standalone@7.22.10/babel.min.js"></script>
+<script type="text/babel">
+    // 쉬운방식으로 코딩
+    const root = document.getElementById("root");
+    const Title = () => (
+        <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+            Hello I'm a Span
+        </h3>
+    );
+    const Button = () => (
+        <button
+            style={{
+                backgroundColor: "tomato",
+            }}
+            onClick={() => console.log("i'm clicked")}>
+            Click me
+        </button>
+    );
+    const Subtitle = () => (
+        <h2 id="subtitle" onMouseOver={() => console.log("mouse over")}>
+            마우스 오버됐나요?</h2>
+    );
+    const CONTAINER = () => (  // 만든 컴포넌트는 대문자로 만들어줘야함
+        <div>
+            <Title />
+            <Subtitle />
+            <Button />
+        </div>
+    );
+    ReactDOM.render(<CONTAINER />, root); // React span element를 id="root"인 안에 html로 만들어 배치
 </script>
 
 </html>
