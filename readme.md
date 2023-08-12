@@ -1,7 +1,7 @@
 # ReactJS 로 영화 웹 서비스 만들기
 <h1>ReactJS 1일차<br>23.08.12</h1>
 
-<h3>JS와 ReactJs 차이점</h3>
+<h3>ReactJs JS 차이점</h3>
 <ul>
 <li> 따로 js로 html태그를 만들어 줄 필요가없다. </li>
 <li> 이벤트 등록을 한 컴포넌트에 한번에 할 수 있다.</li>
