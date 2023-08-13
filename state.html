@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script> <!-- React JS 상호작용의 원동력 -->
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<!-- ReactDOM React element를 가져다가 HTML로 바꾸는 역할 -->
+<script src="https://unpkg.com/@babel/standalone@7.22.10/babel.min.js"></script>
+<script type="text/babel">
+    // 쉬운방식으로 코딩
+    const root = document.getElementById("root");
+    function App() { 
+        const [counter, setCounter] = React.useState(0); // 배열을 만들어줌 첫번쨰요소 counter 두번째요소 modifier
+        const onClick = () => { // state를 바꿔주는 두가지 방법
+        //    setCounter(counter +1);
+        setCounter((current) => current + 1);
+        };
+        return (
+        <div>
+            <h3>Total clicks : {counter}</h3>
+            <button onClick={onClick}>Click me</button>
+        </div>
+        )
+    };
+    ReactDOM.render(<App />,  root);  // React span element를 id="root"인 안에 html로 만들어 배치
+</script>
+
+</html>

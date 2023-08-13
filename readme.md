@@ -1,6 +1,27 @@
 # ReactJS 로 영화 웹 서비스 만들기
-<h1>ReactJS 1일차<br>23.08.12</h1>
+<h1>ReactJS 2일차<br>23.08.13</h1>
+<h2>아직 웹서비스 만들기 전 기초문법</h2>
+<pre><code>
+   const root = document.getElementById("root");
+    function App() { 
+        const [counter, setCounter] = React.useState(0); // 배열을 만들어줌 첫번쨰요소 counter 두번째요소 modifier
+        const onClick = () => { // state를 바꿔주는 두가지 방법
+        //    setCounter(counter +1);
+        setCounter((current) => current + 1);
+        };
+        return (
+        
+        div
+           h3Total clicks : {counter}/h3
+            button onClick={onClick}>Click me /button
+        /div
+        )
+    };
+    ReactDOM.render(<App />,  root);  // React span element를 id="root"인 안에 html로 만들어 배치
 
+</code></pre>
+
+<h1>ReactJS 1일차<br>23.08.12</h1>
 <h3>ReactJs JS 차이점</h3>
 <ul>
 <li> 따로 js로 html태그를 만들어 줄 필요가없다. </li>
