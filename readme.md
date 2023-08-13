@@ -1,5 +1,53 @@
 # ReactJS 로 영화 웹 서비스 만들기
 <h1>ReactJS 2일차<br>23.08.13</h1>
+<h2>시간 <-> 분</h2>
+<pre>
+<code>
+function App() { 
+        const [amount, setAmount] = React.useState(0);
+        const [flipped, setFlipped]= React.useState(false);
+        const onChange = (event) => {
+            setAmount(event.target.value);
+        }
+        const reset = () => setAmount(0);
+        const onFlip = () => {
+            reset();
+            setFlipped((current) => !current);
+        }
+        return (
+        <div>
+            <h1>Super Converter</h1>
+            <div><label for="minutes">Minutes</label>
+            <input 
+            value={flipped ? amount*60 : amount } 
+            id="minutes" 
+            placeholder ="Minutes"  
+            type="number"
+            onChange={onChange}
+            disabled = {flipped}
+            />
+            </div>
+            <div>
+            <label for="hours">Hours</label>
+            <input 
+            value={flipped ? amount : Math.round(amount / 60)}
+            id="hours" 
+            placeholder ="Hours" 
+            type="number"
+            disabled={!flipped}
+            onChange={onChange}
+            />
+            </div>
+            <button onClick={reset}>Rest</button>
+            <button onClick={onFlip}>Filp</button>
+        </div>
+        )
+    };
+    const root = document.getElementById("root");
+    ReactDOM.render(<App />,  root);  // React span element를 id="root"인 안에 html로 만들어 배치
+</code>
+</pre>
+
 <h2>아직 웹서비스 만들기 전 기초문법</h2>
 <pre><code>
    const root = document.getElementById("root");
