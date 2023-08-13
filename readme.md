@@ -1,8 +1,8 @@
 # ReactJS 로 영화 웹 서비스 만들기
 <h1>ReactJS 2일차<br>23.08.13</h1>
-<h2>시간 <-> 분</h2>
-<pre>
-<code>
+<h2>React 시간 <-> 분 </h2>
+
+```
 function App() { 
         const [amount, setAmount] = React.useState(0);
         const [flipped, setFlipped]= React.useState(false);
@@ -45,8 +45,7 @@ function App() {
     };
     const root = document.getElementById("root");
     ReactDOM.render(<App />,  root);  // React span element를 id="root"인 안에 html로 만들어 배치
-</code>
-</pre>
+```
 
 <h2>아직 웹서비스 만들기 전 기초문법</h2>
 <pre><code>
