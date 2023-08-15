@@ -7,52 +7,42 @@
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script> <!-- React JS 상호작용의 원동력 -->
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <!-- ReactDOM React element를 가져다가 HTML로 바꾸는 역할 -->
-<script src="https://unpkg.com/@babel/standalone@7.22.10/babel.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
 <script type="text/babel">
-    // 쉬운방식으로 코딩
-    
-    function App() { 
-        const [amount, setAmount] = React.useState(0);
-        const [flipped, setFlipped]= React.useState(false);
-        const onChange = (event) => {
-            setAmount(event.target.value);
-        }
-        const reset = () => setAmount(0);
-        const onFlip = () => {
-            reset();
-            setFlipped((current) => !current);
-        }
-        return (
+function Btn({ text, fontSize =12 }) {
+    return (
+        <button
+            style={{
+                backgroundColor: "tomato",
+                color: "white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: "10px",
+                fontSize,
+            }}
+        >
+            {text}
+        </button>
+    );
+}
+Btn.propTypes = {
+    text : PropTypes.string,
+    fontSize : PropTypes.number,
+};
+function App() { 
+
+    return ( // Props이름일뿐 html에 반영되지 않는다
         <div>
-            <h1>Super Converter</h1>
-            <div><label for="minutes">Minutes</label>
-            <input 
-            value={flipped ? amount*60 : amount } 
-            id="minutes" 
-            placeholder ="Minutes"  
-            type="number"
-            onChange={onChange}
-            disabled = {flipped}
-            />
-            </div>
-            <div>
-            <label for="hours">Hours</label>
-            <input 
-            value={flipped ? amount : Math.round(amount / 60)}
-            id="hours" 
-            placeholder ="Hours" 
-            type="number"
-            disabled={!flipped}
-            onChange={onChange}
-            />
-            </div>
-            <button onClick={reset}>Rest</button>
-            <button onClick={onFlip}>Filp</button>
+            <Btn text="Save Change" fontSize={18} />
+            <Btn fontSize={14} text={"Continue"} />
         </div>
-        )
-    };
-    const root = document.getElementById("root");
-    ReactDOM.render(<App />,  root);  // React span element를 id="root"인 안에 html로 만들어 배치
+    );
+}
+
+const root = document.getElementById("root");
+ReactDOM.render(<App />, root);
+
 </script>
 
 </html>
